@@ -16,11 +16,11 @@ public class LocalCharacter : Character {
 
             this.flex += (toFlex - flex) * Time.deltaTime * flexSpeed;
 
-            this.body.velocity = this.speed * this.transform.forward;
-            this.ragDoll.animator.SetBool("running", true);
+            //this.body.velocity = this.speed * this.transform.forward;
+            //this.ragDoll.animator.SetBool("running", true);
             this.ragDoll.animator.SetFloat("flex", flex);
             this.toFlex = 0.5f;
-            /*
+            
             if (Input.GetKey(KeyCode.W))
             {
                 this.body.velocity = this.speed * this.transform.forward;
@@ -31,7 +31,7 @@ public class LocalCharacter : Character {
                 this.body.velocity = Vector3.zero;
                 this.ragDoll.animator.SetBool("running", false);
             }
-            */
+            
             if (Input.GetKey(KeyCode.A))
             {
                 this.body.angularVelocity = -this.rotationSpeed * Vector3.up;
