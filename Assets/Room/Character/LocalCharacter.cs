@@ -6,7 +6,7 @@ public class LocalCharacter : Character {
 	float initialSpeed;
 	
     void Awake() {
-        this.transform.position = Random.Range(-20f, 20f) * Vector3.right;
+        this.transform.position = Random.Range(-7f, 7f) * Vector3.right;
     }
     
     public override void Update() {
