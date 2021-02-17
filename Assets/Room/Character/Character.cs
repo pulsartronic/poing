@@ -9,19 +9,12 @@ public class Character : MonoBehaviour {
 
     public RagDoll ragDoll;
 
-    public Transform centerOfMass;
-
     public float flex = 0.5f;
     public float flexSpeed;
     public float startFlex;
     public float toFlex;
 
     public  bool tackling = false;
-
-    private void Awake()
-    {
-        this.body.centerOfMass = this.centerOfMass.localPosition;
-    }
 
     public IEnumerator CoTackle()
     {
