@@ -30,10 +30,7 @@ public class LocalCharacter : Character {
             }
         }
         
-        if (Input.GetKey(KeyCode.Space))
-        {
-            this.beating = true;
-        }
+        this.beating = Input.GetKey(KeyCode.Space);
     }
 }
 
