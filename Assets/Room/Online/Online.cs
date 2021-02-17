@@ -109,7 +109,7 @@ public class Online : MonoBehaviour {
 			rot["z"] = this.room.player.transform.eulerAngles.z;
 			
 			this.data["dir"] = this.room.player.direction;
-			//this.data["on"] = this.room.bikes.player.isMotorON();
+			this.data["bea"] = this.room.player.beating;
 			
 			this.data["t"] = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 			

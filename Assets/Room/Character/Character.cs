@@ -16,21 +16,34 @@ public class Character : MonoBehaviour {
 
     public bool tackling = false;
 	public int direction;
+	public bool beating = false;
 	
 	public virtual void Update() {
-		if (this.ragDoll.animator.enabled && !this.tackling)
+		if (this.ragDoll.animator.enabled)
         {
-            this.flex += (toFlex - flex) * Time.deltaTime * flexSpeed;
-            this.body.velocity = this.speed * this.transform.forward;
-            this.ragDoll.animator.SetBool("running", true);
-            this.ragDoll.animator.SetFloat("flex", flex);
-            this.body.angularVelocity = direction * this.rotationSpeed * Vector3.up;
-            this.toFlex = (1 + direction) / 2f;
+        	if (!this.tackling) {
+		        this.flex += (toFlex - flex) * Time.deltaTime * flexSpeed;
+		        this.body.velocity = this.speed * this.transform.forward;
+		        this.ragDoll.animator.SetBool("running", true);
+		        this.ragDoll.animator.SetFloat("flex", flex);
+		        this.body.angularVelocity = direction * this.rotationSpeed * Vector3.up;
+		        this.toFlex = (1 + direction) / 2f;
+		        if (this.beating) {
+		        	this.tackle();
+		        }
+            }
+        } else {
+        	this.body.velocity = Vector3.zero;
         }
 	}
 	
 	public void setDirection(int direction) {
 		this.direction = direction;
+	}
+	
+	public void tackle() {
+		this.tackling = true;
+		this.StartCoroutine(CoTackle());
 	}
 	
     public IEnumerator CoTackle()
