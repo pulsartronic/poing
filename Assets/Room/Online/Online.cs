@@ -67,14 +67,14 @@ public class Online : MonoBehaviour {
 				var dataSTR = System.Text.Encoding.UTF8.GetString(bytes);
 				Hashtable data = (Hashtable) JSON.decode(dataSTR);
 				int id = (int) (double) data["id"];
-				RemoteCharacter RemoteCharacter = this.remoteCharacters.Find(x => x.id == id);
-				if (!RemoteCharacter) {
+				RemoteCharacter remoteCharacter = this.remoteCharacters.Find(x => x.id == id);
+				if (!remoteCharacter) {
 					if (!create) {
 						create = true;
 			 			createID = id;
 			 		}
 				} else {
-					RemoteCharacter.setData(data);
+					remoteCharacter.setData(data);
 				}
 			} catch(Exception e) {
 				Debug.LogError(e);
@@ -85,8 +85,8 @@ public class Online : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (create) {
-			GameObject RemoteCharacterObject = GameObject.Instantiate(this.remoteCharacterPrefab, this.transform);
-			RemoteCharacter remoteCharacter = RemoteCharacterObject.GetComponent<RemoteCharacter>();
+			GameObject remoteCharacterObject = GameObject.Instantiate(this.remoteCharacterPrefab, this.transform);
+			RemoteCharacter remoteCharacter = remoteCharacterObject.GetComponent<RemoteCharacter>();
 			this.remoteCharacters.Add(remoteCharacter);
 			remoteCharacter.init(this, createID);
  			create = false;
@@ -108,15 +108,15 @@ public class Online : MonoBehaviour {
 			rot["y"] = this.room.player.transform.eulerAngles.y;
 			rot["z"] = this.room.player.transform.eulerAngles.z;
 			
-			//this.data["dir"] = this.room.bikes.player.getDirection();
+			this.data["dir"] = this.room.player.direction;
 			//this.data["on"] = this.room.bikes.player.isMotorON();
 			
 			this.data["t"] = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 			
 			ArrayList clocks = (ArrayList) this.data["c"];
 			clocks.Clear();
-			foreach(RemoteCharacter RemoteCharacter in this.remoteCharacters) {
-				Hashtable clock = RemoteCharacter.getSendClock();
+			foreach(RemoteCharacter remoteCharacter in this.remoteCharacters) {
+				Hashtable clock = remoteCharacter.getSendClock();
 				if (null != clock) {
 					clocks.Add(clock);
 				}

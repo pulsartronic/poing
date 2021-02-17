@@ -3792,7 +3792,7 @@ MonoBehaviour:
   cam: {fileID: 963194228}
   lookAtTarget: {fileID: 1857195415}
   lookAtUp: 2
-  up: 2
+  up: 4
   back: 2
   distance: 1
   K: 5

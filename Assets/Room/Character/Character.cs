@@ -14,8 +14,25 @@ public class Character : MonoBehaviour {
     public float startFlex;
     public float toFlex;
 
-    public  bool tackling = false;
-
+    public bool tackling = false;
+	public int direction;
+	
+	public virtual void Update() {
+		if (this.ragDoll.animator.enabled && !this.tackling)
+        {
+            this.flex += (toFlex - flex) * Time.deltaTime * flexSpeed;
+            this.body.velocity = this.speed * this.transform.forward;
+            this.ragDoll.animator.SetBool("running", true);
+            this.ragDoll.animator.SetFloat("flex", flex);
+            this.body.angularVelocity = direction * this.rotationSpeed * Vector3.up;
+            this.toFlex = (1 + direction) / 2f;
+        }
+	}
+	
+	public void setDirection(int direction) {
+		this.direction = direction;
+	}
+	
     public IEnumerator CoTackle()
     {
         this.ragDoll.animator.SetBool("tackling", true);
