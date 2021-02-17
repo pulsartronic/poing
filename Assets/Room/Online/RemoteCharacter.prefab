@@ -1094,7 +1094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 8955965271157210398}
-  speed: 5
+  speed: 1
   rotationSpeed: 2
   ragDoll: {fileID: 8955965272727113411}
   flex: 0.5
@@ -1102,6 +1102,8 @@ MonoBehaviour:
   startFlex: 0
   toFlex: 0
   tackling: 0
+  direction: 0
+  beating: 0
 --- !u!114 &-830044856837930515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,6 +1125,8 @@ MonoBehaviour:
   startFlex: 0
   toFlex: 0
   tackling: 0
+  direction: 0
+  beating: 0
   online: {fileID: 0}
   id: 0
   use: 0

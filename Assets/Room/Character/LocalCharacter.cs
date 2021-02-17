@@ -28,14 +28,12 @@ public class LocalCharacter : Character {
             {
             	this.setDirection(0);
             }
-
-            if (Input.GetKey(KeyCode.Space))
-            {
-                this.beating = true;
-                //this.StartCoroutine(CoTackle());
-            }
-        } else {
-        	this.beating = false;
+        }
+        
+        if (Input.GetKey(KeyCode.Space))
+        {
+            this.beating = true;
         }
     }
 }
+
