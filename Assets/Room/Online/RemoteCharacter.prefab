@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 8955965271157210398}
-  speed: 1
+  speed: 4
   rotationSpeed: 2
   ragDoll: {fileID: 8955965272727113411}
   flex: 0.5

@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LocalCharacter : Character {
-    void Start() {
-        
+	float initialSpeed;
+	
+    void Awake() {
+        this.transform.position = Random.Range(-20f, 20f) * Vector3.right;
     }
     
     public override void Update() {
