@@ -1448,7 +1448,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640359072}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b2d0ca471142efced82590c1b4a50520, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.35
@@ -2407,7 +2407,7 @@ TerrainCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1065137495}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7fd73b2fe665b971d92c95a6b6b01300, type: 2}
   m_Enabled: 1
   m_TerrainData: {fileID: 15600000, guid: 405410d45b0b72f4ebbe18df7f273df6, type: 2}
   m_EnableTreeColliders: 1

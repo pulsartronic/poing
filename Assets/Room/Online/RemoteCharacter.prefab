@@ -1031,7 +1031,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8955965271157210468}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b2d0ca471142efced82590c1b4a50520, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.35
@@ -1097,7 +1097,6 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 2
   ragDoll: {fileID: 8955965272727113411}
-  centerOfMass: {fileID: 8955965271619921016}
   flex: 0.5
   flexSpeed: 0
   startFlex: 0
@@ -1119,7 +1118,6 @@ MonoBehaviour:
   speed: 5
   rotationSpeed: 2
   ragDoll: {fileID: 8955965272727113411}
-  centerOfMass: {fileID: 0}
   flex: 0.5
   flexSpeed: 0
   startFlex: 0
