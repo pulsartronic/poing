@@ -47,15 +47,15 @@ public class LocalCharacter : Character {
 		    this.state = CharacterState.TACKLING;
 			yield return new WaitForSeconds(0.6f);
 		    if (this.ragDoll.animator.enabled) {
-		    	this.lastCrash = Time.time;
+		    	this.lastCrash = Time.time + 1f;
 		        this.state = CharacterState.RAGDOLING;
-		        this.StartCoroutine(CoRestore());
+		        this.StartCoroutine(CoRestore(1f));
 		    }
         }
     }
 
-    public IEnumerator CoRestore() {
-        yield return new WaitForSeconds(3f);
+    public IEnumerator CoRestore(float time) {
+        yield return new WaitForSeconds(time);
         this.state = CharacterState.RUNNING;
     }
     
@@ -64,7 +64,7 @@ public class LocalCharacter : Character {
         	if (this.crashInterval < (Time.time - this.lastCrash)) {
         		this.lastCrash = Time.time + 3f;
 		    	this.state = CharacterState.RAGDOLING;
-		    	this.StartCoroutine(CoRestore());
+		    	this.StartCoroutine(CoRestore(3f));
         	}
         }
     }
