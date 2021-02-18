@@ -62,7 +62,7 @@ public class LocalCharacter : Character {
 	public void crash() {
         if (this.ragDoll.animator.enabled) {
         	if (this.crashInterval < (Time.time - this.lastCrash)) {
-        		this.lastCrash = Time.time;
+        		this.lastCrash = Time.time + 3f;
 		    	this.state = CharacterState.RAGDOLING;
 		    	this.StartCoroutine(CoRestore());
         	}
