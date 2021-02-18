@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LocalCharacter : Character {
 	float initialSpeed;
+	float lastCrash;
+	public float crashInterval = 2f;
 	
     void Awake() {
         this.transform.position = Random.Range(-7f, 7f) * Vector3.right;
@@ -45,6 +47,7 @@ public class LocalCharacter : Character {
 		    this.state = CharacterState.TACKLING;
 			yield return new WaitForSeconds(0.6f);
 		    if (this.ragDoll.animator.enabled) {
+		    	this.lastCrash = Time.time;
 		        this.state = CharacterState.RAGDOLING;
 		        this.StartCoroutine(CoRestore());
 		    }
@@ -58,8 +61,11 @@ public class LocalCharacter : Character {
     
 	public void crash() {
         if (this.ragDoll.animator.enabled) {
-        	this.state = CharacterState.RAGDOLING;
-        	this.StartCoroutine(CoRestore());
+        	if (this.crashInterval < (Time.time - this.lastCrash)) {
+        		this.lastCrash = Time.time;
+		    	this.state = CharacterState.RAGDOLING;
+		    	this.StartCoroutine(CoRestore());
+        	}
         }
     }
 }
