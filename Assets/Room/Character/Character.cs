@@ -11,6 +11,7 @@ public enum CharacterState : int {
 
 public class Character : MonoBehaviour {
     public Rigidbody body;
+    public Collider capsule;
     public float speed;
     public float rotationSpeed;
 
@@ -49,7 +50,8 @@ public class Character : MonoBehaviour {
 		if (!this.ragDoll.animator.enabled) {
 			this.ragDoll.restore();
 		}
-		
+		this.body.isKinematic = false;
+		this.capsule.enabled = true;
 		this.flex += (toFlex - flex) * Time.deltaTime * flexSpeed;
         this.body.velocity = this.speed * this.transform.forward;
         this.ragDoll.animator.SetBool("running", true);
@@ -73,6 +75,8 @@ public class Character : MonoBehaviour {
 		this.body.velocity = Vector3.zero;
 		this.direction = 0;
 		if (this.ragDoll.animator.enabled) {
+			this.body.isKinematic = true;
+			this.capsule.enabled = false;
 			this.ragDoll.inertiate(this.body.velocity);
 		}
 	}

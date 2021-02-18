@@ -59,6 +59,7 @@ public class LocalCharacter : Character {
 	public void crash() {
         if (this.ragDoll.animator.enabled) {
         	this.state = CharacterState.RAGDOLING;
+        	this.StartCoroutine(CoRestore());
         }
     }
 }
