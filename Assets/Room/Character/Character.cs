@@ -77,7 +77,7 @@ public class Character : MonoBehaviour {
 		if (this.ragDoll.animator.enabled) {
 			this.body.isKinematic = true;
 			this.capsule.enabled = false;
-			this.ragDoll.inertiate(this.body.velocity);
+			this.ragDoll.inertiate(3f * this.transform.forward + 2f * Vector3.up);
 		}
 	}
 	
