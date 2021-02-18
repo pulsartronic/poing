@@ -76,7 +76,7 @@ public class RemoteCharacter : Character {
 			this.reulers.z = (float) (double) rot["z"];
 			
 			this.direction = (int) (double) data["dir"];
-			this.beating = (bool) data["bea"];
+			this.state = (CharacterState) (int) (double) data["state"];
 		}
 	}
 
